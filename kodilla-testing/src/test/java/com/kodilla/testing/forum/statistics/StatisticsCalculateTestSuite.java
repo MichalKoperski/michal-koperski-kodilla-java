@@ -13,15 +13,10 @@ public class StatisticsCalculateTestSuite {
         CalculateStatistics calculate = new CalculateStatistics();
         when(statisticMock.postsCount()).thenReturn(1000);
         when(statisticMock.commentsCount()).thenReturn(1);
-        when(statisticMock.usersNames().size()).thenReturn(1);
-        when(statisticMock.postsCount()/statisticMock.usersNames().size()).thenReturn(1);
-        when(statisticMock.commentsCount()/statisticMock.usersNames().size()).thenReturn(1);
-        when(statisticMock.commentsCount()/statisticMock.postsCount()).thenReturn(1);
-
+       // when(statisticMock.usersNames()).thenReturn(lista z jednym rekordem);
 
         //When
-        int quantityOfPosts = 1000;
-                //calculate.calculateAdvStatistics(statisticMock).postsQuantity;
+        int quantityOfPosts = calculate.getAV1();
 
         //Then
         Assert.assertEquals(1000, quantityOfPosts);
