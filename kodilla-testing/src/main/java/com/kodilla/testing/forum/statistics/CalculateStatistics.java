@@ -1,10 +1,11 @@
 package com.kodilla.testing.forum.statistics;
 public class CalculateStatistics {
     Statistics statistics;
-    public void calculateAdvStatistics(Statistics statistics, int averagePostsPerUser, int averageCommentsPerUser, int averageCommentPerPost) {
-        int usersCount = statistics.usersNames().size();
-        int postsQuantity = statistics.postsCount();
-        int commentsQuantity = statistics.commentsCount();
+    public void calculateAdvStatistics(Statistics statistics) {
+        private int averagePostsPerUser;
+        private int averageCommentsPerUser;
+        private int averageCommentPerPost;
+
         averagePostsPerUser = statistics.postsCount()/statistics.usersNames().size();
         averageCommentsPerUser = statistics.commentsCount()/statistics.usersNames().size();
         averageCommentPerPost = statistics.commentsCount()/statistics.postsCount();
