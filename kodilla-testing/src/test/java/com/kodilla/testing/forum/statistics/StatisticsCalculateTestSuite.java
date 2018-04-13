@@ -22,6 +22,7 @@ public class StatisticsCalculateTestSuite {
         when(statisticMock.usersNames()).thenReturn(Arrays.asList("test"));
 
         //When
+        calculate.calculateAdvStatistics(statisticMock);
         int quantityOfPosts = calculate.getAV1();
 
         //Then
