@@ -53,14 +53,15 @@ class ShapeCollector {
         this.list=list;
     }
     public void addFigure(Shape shape) {
-
+        list.add(shape);
     }
     public boolean removeFigure(Shape shape) {
+        if(list.size()!=0) {
+            list.remove(shape);
+        }
         return true;
     }
     public Shape getFigure(int n) {
-        return null;
-    }
-    public void showFigures() {
+        return list.get(n);
     }
 }
