@@ -20,15 +20,6 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> bookListInHands = new ArrayList<Book>();
-        HashMap<LibraryUser, Book> bookMapInHands = new HashMap<LibraryUser, Book>();
-
-        for (Map.Entry<LibraryUser, Book> inHandsBook : bookMapInHands.entrySet()) {
-            if (inHandsBook.getKey() == libraryUser) {
-                bookListInHands.add(inHandsBook.getValue());
-            }
-
-        }
-        return bookListInHands;
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 }

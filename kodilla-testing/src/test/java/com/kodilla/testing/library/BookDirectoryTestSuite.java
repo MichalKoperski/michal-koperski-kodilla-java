@@ -16,14 +16,14 @@ public class BookDirectoryTestSuite {
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
 
         List<Book> resultListOfBooksInHands = new ArrayList<Book>();
-        HashMap<LibraryUser, Book> mapBookInHands2 = new HashMap<LibraryUser, Book>();
+        //HashMap<LibraryUser, Book> mapBookInHands2 = new HashMap<LibraryUser, Book>();
 
         Book book1 = new Book("Secrets of Alamo", "John Smith", 2008);
         Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", 2012);
         LibraryUser user1 = new LibraryUser("John", "A", "9999");
         LibraryUser user2 = new LibraryUser("Bob", "B", "1111");
-        mapBookInHands2.put(user1, book1);
-        mapBookInHands2.put(user2, book2);
+        //mapBookInHands2.put(user1, book1);
+        //mapBookInHands2.put(user2, book2);
 
         resultListOfBooksInHands.add(book1);
 
