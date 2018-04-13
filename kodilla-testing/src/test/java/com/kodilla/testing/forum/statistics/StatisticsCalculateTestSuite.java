@@ -1,7 +1,12 @@
 package com.kodilla.testing.forum.statistics;
 
-import org.junit.*;
-import static org.mockito.Mockito.*;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.Arrays;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class StatisticsCalculateTestSuite {
 
@@ -10,10 +15,11 @@ public class StatisticsCalculateTestSuite {
         //Given
         Statistics statisticMock = mock(Statistics.class);
         int posts = 1000;
+
         CalculateStatistics calculate = new CalculateStatistics();
         when(statisticMock.postsCount()).thenReturn(1000);
         when(statisticMock.commentsCount()).thenReturn(1);
-       // when(statisticMock.usersNames()).thenReturn(lista z jednym rekordem);
+        when(statisticMock.usersNames()).thenReturn(Arrays.asList("test"));
 
         //When
         int quantityOfPosts = calculate.getAV1();
