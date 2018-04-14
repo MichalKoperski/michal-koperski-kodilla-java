@@ -3,15 +3,13 @@ package com.kodilla.testing.shape;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
-
 public class ShapeCollectorTestSuite {
     @Test
     public void testAddFigure() {
         //Given
         Shape circle = new Circle(5);
         ShapeCollector collector = new ShapeCollector();
-        List<Shape> list = new ArrayList<Shape>();
+
         //When
         collector.addFigure(circle);
 
