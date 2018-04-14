@@ -22,6 +22,16 @@ public class CollectionTestSuite {
         System.out.println("Normal list: pass");
         Assert.assertEquals(5, oddext.exterminate(number).size());
     }
+    @Test
+    public void testOddNumbersExterminatorNormalList2() {
+        List<Integer> number = new ArrayList<Integer>();
+        OddNumbersExterminator oddext = new OddNumbersExterminator();
+        for (int i = 100; i >= 0; i--) {
+            number.add(i);
+        }
+        System.out.println("Normal list: pass");
+        Assert.assertEquals(51, oddext.exterminate(number).size());
+    }
     @Before
     public void before() {
         System.out.println("Testing new case");

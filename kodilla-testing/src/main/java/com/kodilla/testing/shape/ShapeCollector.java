@@ -56,7 +56,7 @@ class ShapeCollector {
         list.add(shape);
     }
     public boolean removeFigure(Shape shape) {
-        if(list.size()!=0) {
+        if(list.contains(shape)) {
             list.remove(shape);
         }
         return true;
