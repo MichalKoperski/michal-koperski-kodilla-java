@@ -5,13 +5,16 @@ import org.junit.*;
 import java.util.*;
 
 public class CollectionTestSuite {
+    private static int counter = 0;
+
     @Test
     public void testOddNumbersExterminatorEmptyList() {
+
         List<Integer> number = new ArrayList<Integer>();
         OddNumbersExterminator oddext = new OddNumbersExterminator();
-        System.out.println("Empty list: pass");
         Assert.assertEquals(0, oddext.exterminate(number).size());
     }
+
     @Test
     public void testOddNumbersExterminatorNormalList() {
         List<Integer> number = new ArrayList<Integer>();
@@ -19,9 +22,9 @@ public class CollectionTestSuite {
         for (int i = 0; i < 10; i++) {
             number.add(i);
         }
-        System.out.println("Normal list: pass");
         Assert.assertEquals(5, oddext.exterminate(number).size());
     }
+
     @Test
     public void testOddNumbersExterminatorNormalList2() {
         List<Integer> number = new ArrayList<Integer>();
@@ -29,17 +32,35 @@ public class CollectionTestSuite {
         for (int i = 100; i >= 0; i--) {
             number.add(i);
         }
-        System.out.println("Normal list: pass");
         Assert.assertEquals(51, oddext.exterminate(number).size());
     }
+
     @Before
     public void before() {
-        System.out.println("Testing new case");
+        counter++;
+        if (counter == 1) {
+            System.out.println("Testing case when list is empty");
+        }
+        if (counter == 2) {
+            System.out.println("Testing case when list contains 10 digits");
+        }
+        if (counter == 3) {
+            System.out.println("Testing case when list contains 100 digits");
+        }
     }
-    @After
-    public void after() {
-        System.out.println("Case was tested");
+        @After
+        public void after() {
+            if (counter == 1) {
+                System.out.println("Test with empty list: pass");
+            }
+            if (counter == 2) {
+                System.out.println("Test with 10 digits list: pass");
+            }
+            if (counter == 3) {
+                System.out.println("Test with 100 digits list: pass");
+            }
+        }
     }
-}
+
 
 
