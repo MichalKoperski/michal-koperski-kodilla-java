@@ -22,7 +22,7 @@ public class ShapeCollectorTestSuite {
         //Given
         Shape circle = new Circle(6);
         ShapeCollector collector = new ShapeCollector();
-        collector.removeFigure(circle);
+        collector.addFigure(circle);
 
         //When
         boolean result = collector.removeFigure(circle);
