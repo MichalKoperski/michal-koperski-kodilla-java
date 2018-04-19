@@ -143,10 +143,11 @@ public class BoardTestSuite {
         List<TaskList> allTasks = new ArrayList<>();
         allTasks.add(new TaskList("In progress"));
 
-        long days = project.getTaskLists().stream()
+        double days = project.getTaskLists().stream()
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated())
                 .map(s -> ChronoUnit.DAYS.between(LocalDate.now(), s))
+                .getAsDouble()
                 .average();
 
         //Then

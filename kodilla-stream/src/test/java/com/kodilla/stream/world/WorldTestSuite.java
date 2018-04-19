@@ -31,4 +31,3 @@ public class WorldTestSuite {
         Assert.assertEquals(new BigDecimal("16"), world.getPopulation());
     }
 }
-
