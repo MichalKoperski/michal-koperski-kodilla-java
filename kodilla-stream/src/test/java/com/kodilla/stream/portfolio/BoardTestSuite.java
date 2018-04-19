@@ -144,6 +144,7 @@ public class BoardTestSuite {
         allTasks.add(new TaskList("In progress"));
 
         double days = project.getTaskLists().stream()
+                .filter(allTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated())
                 .map(s -> ChronoUnit.DAYS.between(s, LocalDate.now()))
@@ -152,7 +153,6 @@ public class BoardTestSuite {
                 .getAsDouble();
 
         //Then
-        Assert.assertEquals(14.166666, days, 0.001);
+        Assert.assertEquals(10, days, 0.00001);
     }
-
 }
