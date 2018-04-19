@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public interface ArrayOperations {
     static double getAverage(int[] numbers) {
         List<Integer> list = IntStream.range(0, numbers.length)
-                .collect(Collectors.toList);
+                .collect(Collectors.toList());
         return IntStream.range(0, list.size())
                 .average()
                 .getAsDouble();
