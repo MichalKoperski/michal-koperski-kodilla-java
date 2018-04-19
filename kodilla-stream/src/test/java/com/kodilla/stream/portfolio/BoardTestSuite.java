@@ -146,12 +146,13 @@ public class BoardTestSuite {
         double days = project.getTaskLists().stream()
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated())
-                .map(s -> ChronoUnit.DAYS.between(LocalDate.now(), s))
-                .getAsDouble()
-                .average();
+                .map(s -> ChronoUnit.DAYS.between(s, LocalDate.now()))
+                .mapToDouble(z -> z)
+                .average()
+                .getAsDouble();
 
         //Then
-        Assert.assertEquals(15, days);
+        Assert.assertEquals(14.166666, days, 0.001);
     }
 
 }
