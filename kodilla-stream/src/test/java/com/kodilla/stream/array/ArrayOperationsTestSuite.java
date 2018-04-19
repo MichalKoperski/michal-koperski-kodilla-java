@@ -10,7 +10,7 @@ public class ArrayOperationsTestSuite {
         double sum = 0;
         int[] numery = new int[20];
         for (int i = 0; i < 20; i++) {
-            numery[i] = i;
+            numery[i] = 2*i;
             sum += i;
         }
 
