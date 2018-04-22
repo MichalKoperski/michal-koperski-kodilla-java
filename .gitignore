@@ -2,6 +2,7 @@
 /build/
 kodilla-testing/out
 kodilla-stream/out
+kodilla-rps/out
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
