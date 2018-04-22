@@ -44,7 +44,7 @@ public class RpsRunner {
                         }
                         if (probability>=25&&probability<50) {
                             computerPoints++;
-                            System.out.println("Computer has chosen spock. You loose");
+                            System.out.println("Computer has chosen spock. You lose");
                         }
                         if (probability>=75&&probability<88) {
                             userPoints++;
