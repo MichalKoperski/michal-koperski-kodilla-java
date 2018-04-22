@@ -8,88 +8,170 @@ public class RpsRunner {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner scan = new Scanner(System.in);
-        System.out.println("Welcome to the Game: Rock, Scissors, Paper. Please enter how many rounds would you like to play? :");
-        int numberOfRounds = scan.nextInt();
-        System.out.println("Please enter number: 1 - rock; 2 - paper; 3 - scissors :");
-        int userChoice = scan.nextInt();
-        System.out.println("Please enter number: 1 - rock; 2 - paper; 3 - scissors :");
-        String userChoice2 = scan.next();
-
-        scan.close();
+        System.out.println("What is your name? ");
+        String name = scan.next();
 
         Random randomGenerator = new Random();
-        int computerChoice = randomGenerator.nextInt(3);
         int userPoints = 0;
         int computerPoints = 0;
         int counterOfRounds = 0;
+        int probability;
         boolean end = false;
-
-        while(counterOfRounds<=numberOfRounds) {
-            while(!end) {
-                if(userChoice==1) {
-                    if(computerChoice==1) {
-                        System.out.println("Computer has chosen rock. Remis");
+        boolean end2 = false;
+            MAIN_LOOP:
+            while(!end2) {
+                System.out.println("Welcome "+name+" to the Game: Rock, Scissors, Paper. Please enter how many rounds it is necessary to win the game? :");
+                int numberOfWins = scan.nextInt();
+                System.out.println("Please enter number: 1 - rock; 2 - paper; 3 - scissors; 4 - spock; 5 - lizard");
+                int userChoice = scan.nextInt();
+                while(userChoice>5||userChoice==0) {
+                    System.out.println("Error!!! Please enter number: 1 - rock; 2 - paper; 3 - scissors; 4 - spock; 5 - lizard");
+                    userChoice = scan.nextInt();
+                }
+                while (!end) {
+                    probability = randomGenerator.nextInt(100);
+                    if (userChoice == 1) {
+                        if (probability>=50&&probability<75) {
+                            System.out.println("Computer has chosen rock. It's a tie");
+                        }
+                        if (probability>=0&&probability<25) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen paper. You lose");
+                        }
+                        if (probability>=88&&probability<100) {
+                            userPoints++;
+                            System.out.println("Computer has chosen scissors. You win");
+                        }
+                        if (probability>=25&&probability<50) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen spock. You loose");
+                        }
+                        if (probability>=75&&probability<88) {
+                            userPoints++;
+                            System.out.println("Computer has chosen lizard. You win");
+                        }
                     }
-                    if(computerChoice==2) {
-                        userPoints++;
-                        System.out.println("Computer has chosen paper. You win");
+                    if (userChoice == 2) {
+                        if (probability>=75&&probability<88) {
+                            userPoints++;
+                            System.out.println("Computer has chosen rock. You win");
+                        }
+                        if (probability>=50&&probability<75) {
+                            System.out.println("Computer has chosen paper. It's a tie");
+                        }
+                        if (probability>=0&&probability<25) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen scissors. You lose");
+                        }
+                        if (probability>=88&&probability<100) {
+                            userPoints++;
+                            System.out.println("Computer has chosen spock. You win");
+                        }
+                        if (probability>=25&&probability<50) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen lizard. You lose");
+                        }
                     }
-                    if(computerChoice==3) {
-                        computerPoints++;
-                        System.out.println("Computer has chosen scissors. You lose");
+                    if (userChoice == 3) {
+                        if (probability>=25&&probability<50) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen rock. You lose");
+                        }
+                        if (probability>=88&&probability<100) {
+                            userPoints++;
+                            System.out.println("Computer has chosen paper. You win");
+                        }
+                        if (probability>=50&&probability<75) {
+                            System.out.println("Computer has chosen scissors. It's a tie");
+                        }
+                        if (probability>=0&&probability<25) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen spock. You lose");
+                        }
+                        if (probability>=75&&probability<88) {
+                            userPoints++;
+                            System.out.println("Computer has chosen lizard. You win");
+                        }
+                    }
+                    if (userChoice == 4) {
+                        if (probability>=75&&probability<88) {
+                            userPoints++;
+                            System.out.println("Computer has chosen rock. You win");
+                        }
+                        if (probability>=0&&probability<25) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen paper. You lose");
+                        }
+                        if (probability>=88&&probability<100) {
+                            userPoints++;
+                            System.out.println("Computer has chosen scissors. You win");
+                        }
+                        if (probability>=50&&probability<75) {
+                            System.out.println("Computer has chosen spock. It's a tie");
+                        }
+                        if (probability>=25&&probability<50) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen lizard. You lose");
+                        }
+                    }
+                    if (userChoice == 5) {
+                        if (probability>=0&&probability<25) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen rock. You lose");
+                        }
+                        if (probability>=75&&probability<88) {
+                            userPoints++;
+                            System.out.println("Computer has chosen paper. You win");
+                        }
+                        if (probability>=25&&probability<50) {
+                            computerPoints++;
+                            System.out.println("Computer has chosen scissors. You lose");
+                        }
+                        if (probability>=88&&probability<100) {
+                            userPoints++;
+                            System.out.println("Computer has chosen spock. You win");
+                        }
+                        if (probability>=50&&probability<75) {
+                            System.out.println("Computer has chosen lizard. It's a tie");
+                        }
+                    }
+                    counterOfRounds++;
+                    System.out.println("You have played: " + counterOfRounds + " times. You have won: " + userPoints + " rounds. Computer has won: " + computerPoints + " rounds.");
+                    if (computerPoints == numberOfWins || userPoints == numberOfWins) {
+                        end = true;
                     }
                 }
-                if(userChoice==2) {
-                    if(computerChoice==1) {
-                        userPoints++;
-                        System.out.println("Computer has chosen rock. You win");
-                    }
-                    if(computerChoice==2) {
-                        System.out.println("Computer has chosen paper. Remis");
-                    }
-                    if(computerChoice==3) {
-                        computerPoints++;
-                        System.out.println("Computer has chosen scissors. You lose");
-                    }
-                }
-                if(userChoice==3) {
-                    if(computerChoice==1) {
-                        computerPoints++;
-                        System.out.println("Computer has chosen rock. You lose");
-                    }
-                    if(computerChoice==2) {
-                        userPoints++;
-                        System.out.println("Computer has chosen paper. You win");
-                    }
-                    if(computerChoice==3) {
-                        System.out.println("Computer has chosen scissors. Remis");
-                    }
-                }
-                if(userChoice2.equals("x")) {
+                Scanner scan2 = new Scanner(System.in);
+                System.out.println("Please enter X - exit game; N - rerun the game");
+                String userChoice2 = scan2.next();
+                if (userChoice2.equals("x")) {
                     System.out.println("Do you really want to quit? Please enter y or n");
-                    if(userChoice2.equals("y")) {
-                        break;
+                    userChoice2 = scan2.next();
+                    if (userChoice2.equals("y")) {
+                        end2=true;
+                        System.out.println("You have played: " + counterOfRounds + " times. You have won: " + userPoints + " rounds. Computer has won: " + computerPoints + " rounds.");
+                        if (userPoints > computerPoints) {
+                            System.out.println("Congratulations! You have won the game!");
+                        } else if (userPoints == computerPoints) {
+                            System.out.println("It's a tie");
+                        } else {
+                            System.out.println("You have lost the game.");
+                        }
                     }
                 }
-                if(userChoice2.equals("n")) {
-                    System.out.println("Do you really want to quit current game? Please enter y or n");
-                    if(userChoice2.equals("y")) {
-                        continue;
+                if (userChoice2.equals("n")) {
+                    System.out.println("Do you really want to rerun game? Please enter y or n");
+                    userChoice2 = scan2.next();
+                    if (userChoice2.equals("y")) {
+                        end=false;
+                        end2=false;
+                        userPoints = 0;
+                        computerPoints = 0;
+                        counterOfRounds = 0;
+                        continue MAIN_LOOP;
                     }
-
                 }
-                counterOfRounds++;
             }
-        }
-        System.out.println("You have played: "+counterOfRounds+". You have scored: "+userPoints+" points. Computer has scored: "+computerPoints+" points.");
-        if(userPoints>computerPoints) {
-            System.out.println("Congratulations! You have won!");
-        } else if(userPoints==computerPoints) {
-            System.out.println("Remis");
-        } else {
-            System.out.println("You have lost.");
-        }
-
-
+    scan.close();
     }
 }
