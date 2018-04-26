@@ -1,7 +1,12 @@
 package com.kodilla.rps;
 
-public class Computer implements Contestor {
-    public void makeMove() {
+import java.util.Random;
 
+public class Computer implements Contestor {
+
+    Random randomGenerator = new Random();
+    public int makeMove() {
+        return randomGenerator.nextInt(100);
     }
+
 }
