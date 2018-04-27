@@ -20,9 +20,9 @@ public class RpsRunner {
             gameState.Intro();
 
             player.makeMove();
+
             computer.makeMove();
             gameField.Play(player, computer, gameState);
-
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Please enter X - exit game; N - rerun the game");
             String userChoice2 = scan2.next();

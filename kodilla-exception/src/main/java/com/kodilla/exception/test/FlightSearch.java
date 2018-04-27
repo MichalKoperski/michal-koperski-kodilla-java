@@ -1,8 +1,6 @@
 package com.kodilla.exception.test;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.*;
 public class FlightSearch {
     int counter=0;
     String destination="";
@@ -13,7 +11,14 @@ public class FlightSearch {
         flights.put("Berlin", true);
         flights.put("LA", false);
         flights.put("Paris", false);
-        for (Map.Entry<String, Boolean> fly : flights.entrySet()) {
+
+        if(flights.get(flight.getArrivalAirport())!=true) {
+            throw new RouteNotFoundException("No flight");
+        }
+
+
+       /* for (Map.Entry<String, Boolean> fly : flights.entrySet()) {
+
             if (flight.getArrivalAirport().equals(fly.getKey())) {
                 destination=flight.getArrivalAirport();
                 if (fly.getValue() == true) {
@@ -28,6 +33,6 @@ public class FlightSearch {
                 throw new RouteNotFoundException("No flight");
             }
         }
-    }
+    */}
 }
 
