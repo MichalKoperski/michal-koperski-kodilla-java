@@ -55,3 +55,4 @@ public class RpsRunner {
         scan.close();
     }
 }
+//jedna petla while(state.rounds<wantedrounmds)

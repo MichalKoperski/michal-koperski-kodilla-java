@@ -9,7 +9,7 @@ public class AirportMain {
         FlightSearch search = new FlightSearch();
 
         try {
-            search.findFlight(flight2);
+            search.findFlight(flight3);
         } catch (RouteNotFoundException e) {
             System.out.println("No airport in database ");
         } finally {

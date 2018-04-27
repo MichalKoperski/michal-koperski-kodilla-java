@@ -1,6 +1,6 @@
 package com.kodilla.rps;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class GameState {
     int numberOfWins=0;
@@ -11,5 +11,6 @@ public class GameState {
         numberOfWins = scan.nextInt();
         return numberOfWins;
     }
-
+//licznik rund, punktw
+    //metoda print result
 }

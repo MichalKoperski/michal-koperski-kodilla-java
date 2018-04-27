@@ -13,7 +13,13 @@ public class GameField {
 
 
     public void Play(Contestor player, Contestor computer, GameState gameState) {
-        while (!end) {
+       //zaincjalizoweac playera computer, liczbe rund
+        // ruch gracza, ruch komputer, czy jest remis, czy jest x
+        //jedna runda
+        //GameState Play
+        //
+
+       // while (!end) {
             if (player.makeMove() == 1) {
                 if (computer.makeMove() >= 50 && computer.makeMove() < 75) {
                     System.out.println("Computer has chosen rock. It's a tie");
@@ -128,4 +134,4 @@ public class GameField {
         }
     }
 
-}
+//}

@@ -12,27 +12,12 @@ public class FlightSearch {
         flights.put("LA", false);
         flights.put("Paris", false);
 
-        if(flights.get(flight.getArrivalAirport())!=true) {
+        if(flights.get(flight.getArrivalAirport())==null) {
             throw new RouteNotFoundException("No flight");
         }
-
-
-       /* for (Map.Entry<String, Boolean> fly : flights.entrySet()) {
-
-            if (flight.getArrivalAirport().equals(fly.getKey())) {
-                destination=flight.getArrivalAirport();
-                if (fly.getValue() == true) {
-                    System.out.println("There is a flight to "+destination);
-                }
-                if(counter==flights.entrySet().size()-1) {
-                    System.out.println("No flight available");
-                }
-            }
-            counter++;
-            if(counter==flights.entrySet().size()&&destination.equals("")) {
-                throw new RouteNotFoundException("No flight");
-            }
+        if(flights.get(flight.getArrivalAirport())==false) {
+            System.out.println("No flight available");
         }
-    */}
+    }
 }
 
