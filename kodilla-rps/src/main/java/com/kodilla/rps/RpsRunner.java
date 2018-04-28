@@ -19,8 +19,8 @@ public class RpsRunner {
         //gameState.intro();
         while(numberOfWins>=c||numberOfWins>=d) {
             gameField.Play();
-            c = gameField.Play().getUserPoints();
-            d = gameField.Play().getComputerPoints();
+            c =+ gameField.Play().getUserPoints();
+            d =+ gameField.Play().getComputerPoints();
             gameState.printResult();
         }
         gameField.choice();
