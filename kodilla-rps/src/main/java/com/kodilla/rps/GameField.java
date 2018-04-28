@@ -1,137 +1,155 @@
 package com.kodilla.rps;
 
+import java.util.Scanner;
+
 public class GameField {
 
     int computerPoints=0;
     int userPoints=0;
     int counterOfRounds=0;
-    boolean end = false;
 
-    public int getUserPoints() {return userPoints;}
-    public int getComputerPoints() {return computerPoints;}
-    public int getCounterOfRounds() { return counterOfRounds; }
+    Scanner scan = new Scanner(System.in);
 
+    Contestor player = new Player();
+    Contestor computer = new Computer();
 
-    public void Play(Contestor player, Contestor computer, GameState gameState) {
-       //zaincjalizoweac playera computer, liczbe rund
-        // ruch gracza, ruch komputer, czy jest remis, czy jest x
-        //jedna runda
-        //GameState Play
-        //
-
-       // while (!end) {
-            if (player.makeMove() == 1) {
-                if (computer.makeMove() >= 50 && computer.makeMove() < 75) {
-                    System.out.println("Computer has chosen rock. It's a tie");
-                }
-                if (computer.makeMove() >= 0 && computer.makeMove() < 25) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen paper. You lose");
-                }
-                if (computer.makeMove() >= 88 && computer.makeMove() < 100) {
-                    userPoints++;
-                    System.out.println("Computer has chosen scissors. You win");
-                }
-                if (computer.makeMove() >= 25 && computer.makeMove() < 50) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen spock. You loose");
-                }
-                if (computer.makeMove() >= 75 && computer.makeMove() < 88) {
-                    userPoints++;
-                    System.out.println("Computer has chosen lizard. You win");
-                }
+    public GameState Play() {
+        counterOfRounds++;
+        int a = player.makeMove();
+        int b = computer.makeMove();
+        if (a == 1) {
+            if (b >= 50 && b < 75) {
+                System.out.println("Computer has chosen rock. It's a tie");
             }
-            if (player.makeMove() == 2) {
-                if (computer.makeMove() >= 75 && computer.makeMove() < 88) {
-                    userPoints++;
-                    System.out.println("Computer has chosen rock. You win");
-                }
-                if (computer.makeMove() >= 50 && computer.makeMove() < 75) {
-                    System.out.println("Computer has chosen paper. It's a tie");
-                }
-                if (computer.makeMove() >= 0 && computer.makeMove() < 25) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen scissors. You lose");
-                }
-                if (computer.makeMove() >= 88 && computer.makeMove() < 100) {
-                    userPoints++;
-                    System.out.println("Computer has chosen spock. You win");
-                }
-                if (computer.makeMove() >= 25 && computer.makeMove() < 50) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen lizard. You lose");
-                }
+            if (b >= 0 && b < 25) {
+                computerPoints++;
+                System.out.println("Computer has chosen paper. You lose");
             }
-            if (player.makeMove() == 3) {
-                if (computer.makeMove() >= 25 && computer.makeMove() < 50) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen rock. You lose");
-                }
-                if (computer.makeMove() >= 88 && computer.makeMove() < 100) {
-                    userPoints++;
-                    System.out.println("Computer has chosen paper. You win");
-                }
-                if (computer.makeMove() >= 50 && computer.makeMove() < 75) {
-                    System.out.println("Computer has chosen scissors. It's a tie");
-                }
-                if (computer.makeMove() >= 0 && computer.makeMove() < 25) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen spock. You lose");
-                }
-                if (computer.makeMove() >= 75 && computer.makeMove() < 88) {
-                    userPoints++;
-                    System.out.println("Computer has chosen lizard. You win");
-                }
+            if (b >= 88 && b < 100) {
+                userPoints++;
+                System.out.println("Computer has chosen scissors. You win");
             }
-            if (player.makeMove() == 4) {
-                if (computer.makeMove() >= 75 && computer.makeMove() < 88) {
-                    userPoints++;
-                    System.out.println("Computer has chosen rock. You win");
-                }
-                if (computer.makeMove() >= 0 && computer.makeMove() < 25) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen paper. You lose");
-                }
-                if (computer.makeMove() >= 88 && computer.makeMove() < 100) {
-                    userPoints++;
-                    System.out.println("Computer has chosen scissors. You win");
-                }
-                if (computer.makeMove() >= 50 && computer.makeMove() < 75) {
-                    System.out.println("Computer has chosen spock. It's a tie");
-                }
-                if (computer.makeMove() >= 25 && computer.makeMove() < 50) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen lizard. You lose");
-                }
+            if (b >= 25 && b < 50) {
+                computerPoints++;
+                System.out.println("Computer has chosen spock. You lose");
             }
-            if (player.makeMove() == 5) {
-                if (computer.makeMove() >= 0 && computer.makeMove() < 25) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen rock. You lose");
-                }
-                if (computer.makeMove() >= 75 && computer.makeMove() < 88) {
-                    userPoints++;
-                    System.out.println("Computer has chosen paper. You win");
-                }
-                if (computer.makeMove() >= 25 && computer.makeMove() < 50) {
-                    computerPoints++;
-                    System.out.println("Computer has chosen scissors. You lose");
-                }
-                if (computer.makeMove() >= 88 && computer.makeMove() < 100) {
-                    userPoints++;
-                    System.out.println("Computer has chosen spock. You win");
-                }
-                if (computer.makeMove() >= 50 && computer.makeMove() < 75) {
-                    System.out.println("Computer has chosen lizard. It's a tie");
-                }
+            if (b >= 75 && b < 88) {
+                userPoints++;
+                System.out.println("Computer has chosen lizard. You win");
             }
-            counterOfRounds++;
-            System.out.println("You have played: " + counterOfRounds + " times. You have won: " + userPoints + " rounds. Computer has won: " + computerPoints + " rounds.");
-            if (computerPoints == gameState.Intro() || userPoints == gameState.Intro()) {
-                end = true;
-            }
-
         }
+        if (a == 2) {
+            if (b >= 75 && b < 88) {
+                userPoints++;
+                System.out.println("Computer has chosen rock. You win");
+            }
+            if (b >= 50 && b < 75) {
+                System.out.println("Computer has chosen paper. It's a tie");
+            }
+            if (b >= 0 && b < 25) {
+                computerPoints++;
+                System.out.println("Computer has chosen scissors. You lose");
+            }
+            if (b >= 88 && b < 100) {
+                userPoints++;
+                System.out.println("Computer has chosen spock. You win");
+            }
+            if (b >= 25 && b < 50) {
+                computerPoints++;
+                System.out.println("Computer has chosen lizard. You lose");
+            }
+        }
+        if (a == 3) {
+            if (b >= 25 && b < 50) {
+                computerPoints++;
+                System.out.println("Computer has chosen rock. You lose");
+            }
+            if (b >= 88 && b < 100) {
+                userPoints++;
+                System.out.println("Computer has chosen paper. You win");
+            }
+            if (b >= 50 && b < 75) {
+                System.out.println("Computer has chosen scissors. It's a tie");
+            }
+            if (b >= 0 && b < 25) {
+                computerPoints++;
+                System.out.println("Computer has chosen spock. You lose");
+            }
+            if (b >= 75 && b < 88) {
+                userPoints++;
+                System.out.println("Computer has chosen lizard. You win");
+            }
+        }
+        if (a == 4) {
+            if (b >= 75 && b < 88) {
+                userPoints++;
+                System.out.println("Computer has chosen rock. You win");
+            }
+            if (b >= 0 && b < 25) {
+                computerPoints++;
+                System.out.println("Computer has chosen paper. You lose");
+            }
+            if (b >= 88 && b < 100) {
+                userPoints++;
+                System.out.println("Computer has chosen scissors. You win");
+            }
+            if (b >= 50 && b < 75) {
+                System.out.println("Computer has chosen spock. It's a tie");
+            }
+            if (b >= 25 && b < 50) {
+                computerPoints++;
+                System.out.println("Computer has chosen lizard. You lose");
+            }
+        }
+        if (a == 5) {
+            if (b >= 0 && b < 25) {
+                computerPoints++;
+                System.out.println("Computer has chosen rock. You lose");
+            }
+            if (b >= 75 && b < 88) {
+                userPoints++;
+                System.out.println("Computer has chosen paper. You win");
+            }
+            if (b >= 25 && b < 50) {
+                computerPoints++;
+                System.out.println("Computer has chosen scissors. You lose");
+            }
+            if (b >= 88 && b < 100) {
+                userPoints++;
+                System.out.println("Computer has chosen spock. You win");
+            }
+            if (b >= 50 && b < 75) {
+                System.out.println("Computer has chosen lizard. It's a tie");
+            }
+        }
+        return new GameState(userPoints, computerPoints, counterOfRounds);
     }
+        public void choice(){
+            System.out.println("You have played: " + counterOfRounds + " times. You have won: " + userPoints + " rounds. Computer has won: " + computerPoints + " rounds.");
+            System.out.println("Please enter X - exit game; N - reset the game");
+            String userChoice2 = scan.next();
+                if (userChoice2.equals("x")) {
+                    System.out.println("Do you really want to quit? Please enter y or n");
+                    userChoice2 = scan.next();
+                    if (userChoice2.equals("y")) {
+                            System.out.println("You have played: " + counterOfRounds + " times. You have won: " + userPoints + " rounds. Computer has won: " + computerPoints + " rounds.");
+                            if (userPoints > computerPoints) {
+                                System.out.println("Congratulations! You have won the game!");
+                            } else if (userPoints == computerPoints) {
+                                System.out.println("It's a tie");
+                            } else {
+                                System.out.println("You have lost the game.");
+                            }
+                    }
+                }
+                if (userChoice2.equals("n")) {
+                    System.out.println("Do you really want to reset the game? Please enter y or n");
+                    userChoice2 = scan.next();
+                        if (userChoice2.equals("y")) {
+                            new GameState(0,0,0);
+                            Play();
+                        }
+                }
+    }
+}
 
-//}
