@@ -7,7 +7,7 @@ public class GameState {
     //int numberOfWins;
 
     GameField game = new GameField();
-    public GameState(int computerPoints, int userPoints, int counterOfRounds) {
+    public GameState() {
         this.computerPoints = computerPoints;
         this.userPoints = userPoints;
         this.counterOfRounds = counterOfRounds;
@@ -33,6 +33,6 @@ public class GameState {
  //   return numberOfWins;
 //}
     public void printResult() {
-        System.out.println("You have scored: "+game.Play().getUserPoints()+" points. Computer has scored: "+game.Play().getComputerPoints()+" points. You have played: "+game.Play().getCounterOfRounds()+" times.");
+        System.out.println("You have scored: "+game.getGameState().getUserPoints()+" points. Computer has scored: "+game.getGameState().getComputerPoints()+" points. You have played: "+game.getGameState().getCounterOfRounds()+" times.");
     }
 }

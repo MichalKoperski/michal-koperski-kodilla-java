@@ -8,12 +8,22 @@ public class GameField {
     int userPoints=0;
     int counterOfRounds=0;
 
+
+    GameState gamestate;
+    public GameField() {
+
+        this.gamestate=getGameState();
+    }
+    public GameState getGameState() {
+        return gamestate;
+    }
+
     Scanner scan = new Scanner(System.in);
 
     Contestor player = new Player();
     Contestor computer = new Computer();
 
-    public GameState Play() {
+    public GameState play() {
         counterOfRounds++;
         int a = player.makeMove();
         int b = computer.makeMove();
@@ -122,7 +132,7 @@ public class GameField {
                 System.out.println("Computer has chosen lizard. It's a tie");
             }
         }
-        return new GameState(userPoints, computerPoints, counterOfRounds);
+        return gamestate;
     }
         public void choice(){
             System.out.println("You have played: " + counterOfRounds + " times. You have won: " + userPoints + " rounds. Computer has won: " + computerPoints + " rounds.");
@@ -146,8 +156,8 @@ public class GameField {
                     System.out.println("Do you really want to reset the game? Please enter y or n");
                     userChoice2 = scan.next();
                         if (userChoice2.equals("y")) {
-                            new GameState(0,0,0);
-                            Play();
+                            new GameState();
+                            play();
                         }
                 }
     }
