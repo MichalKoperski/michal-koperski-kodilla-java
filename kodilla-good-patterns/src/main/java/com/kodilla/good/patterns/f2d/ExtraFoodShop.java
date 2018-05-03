@@ -11,6 +11,7 @@ public class ExtraFoodShop implements Producer {
         this.products = products;
     }
     public String getProducerName() {
+        producerName="ExtraFoodShop";
         return producerName;
     }
     public List<String> getProducts() {

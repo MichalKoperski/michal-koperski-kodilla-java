@@ -4,7 +4,7 @@ public class AirportMain {
     public static void main(String[] args) {
         String choice = "Warsaw";
         String choice2 = "Paris";
-        int choiceTypeOfSearch = 2;
+        int choiceTypeOfSearch = 3;
         FlightSearch search = new FlightSearch();
 
         try {

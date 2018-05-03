@@ -1,38 +1,33 @@
 package com.kodilla.rps;
 
 public class GameState {
-    int computerPoints;
-    int userPoints;
-    int counterOfRounds;
-    //int numberOfWins;
+    private int player1Points;
+    private int player2Points;
+    int numberOfRounds;
 
-    GameField game = new GameField();
-    public GameState() {
-        this.computerPoints = computerPoints;
-        this.userPoints = userPoints;
-        this.counterOfRounds = counterOfRounds;
+    public int getPlayer1Points() {
+        return player1Points;
     }
-
-    public int getComputerPoints() {
-        return computerPoints;
+    public int getPlayer2Points() {
+        return player2Points;
     }
-
-    public int getUserPoints() {
-        return userPoints;
+    public void resetGameState(){
+        numberOfRounds = 0;
+        player1Points = 0;
+        player2Points = 0;
     }
-
-    public int getCounterOfRounds() {
-        return counterOfRounds;
+    public void addPointPlayer1(){
+        player1Points++;
     }
-//public void intro() {
- //   Scanner scan = new Scanner(System.in);
- //   System.out.println("Welcome to the Game: Rock, Scissors, Paper. Please enter how many rounds it is necessary to win the game? :");
- //   int numberOfWins = scan.nextInt();
-//}
-//public int getNumberOfWins(){
- //   return numberOfWins;
-//}
-    public void printResult() {
-        System.out.println("You have scored: "+game.getGameState().getUserPoints()+" points. Computer has scored: "+game.getGameState().getComputerPoints()+" points. You have played: "+game.getGameState().getCounterOfRounds()+" times.");
+    public void addPointPlayer2(){
+        player2Points++;
+    }
+    public void addRounds(){
+        numberOfRounds++;
+    }
+    public void printResult(){
+        String result = "You have " + player1Points + " points,\n" +
+                " whereas the computer has " + player2Points + " points.";
+        System.out.println(result);
     }
 }

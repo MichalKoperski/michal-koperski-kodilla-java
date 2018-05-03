@@ -2,11 +2,16 @@ package com.kodilla.rps;
 
 import java.util.Random;
 
-public class Computer implements Contestor {
+public class Computer implements GameInterface {
+    @Override
+    public String getName() {
+        return "I'm your God.";
 
-    Random randomGenerator = new Random();
-    public int makeMove() {
-        return randomGenerator.nextInt(100);
     }
+    public String makeMove() {
+        Random random = new Random();
+        Integer computerMove = random.nextInt(3) + 1;
+        return computerMove.toString();
 
+    }
 }

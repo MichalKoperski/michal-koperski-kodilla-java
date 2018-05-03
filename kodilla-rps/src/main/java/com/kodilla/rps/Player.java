@@ -1,19 +1,44 @@
 package com.kodilla.rps;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Player implements Contestor {
-    int userChoice=0;
-    Scanner scan = new Scanner(System.in);
-
-    public int makeMove() {
-        System.out.println("Please enter number: 1 - rock; 2 - paper; 3 - scissors; 4 - spock; 5 - lizard");
-        userChoice = scan.nextInt();
-        while(userChoice>5||userChoice==0) {
-            System.out.println("Error!!! Please enter number: 1 - rock; 2 - paper; 3 - scissors; 4 - spock; 5 - lizard");
-            userChoice = scan.nextInt();
-        }
-        return userChoice;
+public class Player implements GameInterface {
+    private String name;
+    private List prepareAvailableMoves() {
+        List<String> availableMoves = new ArrayList<>();
+        availableMoves.add("1");
+        availableMoves.add("2");
+        availableMoves.add("3");
+        availableMoves.add("x");
+        availableMoves.add("n");
+        return availableMoves;
     }
 
+    public Player(String name) {
+
+        this.name = name;
+        prepareAvailableMoves();
+    }
+
+    @Override
+    public String getName() {
+
+        return name;
+    }
+    public String makeMove() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What is your move?");
+        String playerMove = scanner.nextLine();
+        while (!(prepareAvailableMoves().contains(playerMove))){
+
+            System.out.println("Wrong number. You have to type 1, 2, or 3.");
+
+            playerMove = scanner.nextLine();
+        }
+
+        return playerMove;
+
+    }
 }
