@@ -10,15 +10,14 @@ public class ExtraFoodShop implements Producer {
         this.producerName = producerName;
         this.products = products;
     }
-
     public String getProducerName() {
         return producerName;
     }
-
     public List<String> getProducts() {
+        products.add("egg");
         return products;
     }
     public void process() {
-        System.out.println("You are buying from"+producerName);
+        System.out.println("You are buying from "+producerName);
     }
 }
