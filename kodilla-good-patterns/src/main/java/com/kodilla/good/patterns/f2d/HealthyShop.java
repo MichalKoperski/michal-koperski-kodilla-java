@@ -16,9 +16,10 @@ public class HealthyShop implements Producer {
     }
 
     public List<String> getProducts() {
+        products.add("potatoe");
         return products;
     }
     public void process() {
-        System.out.println("You are buying from"+producerName);
+        System.out.println("Sending items from Germany");
     }
 }

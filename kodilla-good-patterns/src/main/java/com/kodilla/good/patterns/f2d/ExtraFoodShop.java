@@ -18,6 +18,6 @@ public class ExtraFoodShop implements Producer {
         return products;
     }
     public void process() {
-        System.out.println("You are buying from "+producerName);
+        System.out.println("Sending items from Opole");
     }
 }

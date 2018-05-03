@@ -14,11 +14,11 @@ public class GlutenFreeShop implements Producer {
     public String getProducerName() {
         return producerName;
     }
-
     public List<String> getProducts() {
+        products.add("apple");
         return products;
     }
     public void process() {
-        System.out.println("You are buying from"+producerName);
+        System.out.println("Sending items from Cracow");
     }
 }
