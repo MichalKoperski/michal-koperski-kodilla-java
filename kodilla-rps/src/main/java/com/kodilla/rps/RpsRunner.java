@@ -25,7 +25,6 @@ public class RpsRunner {
                 "x - end game\n" +
                 "n - play again");
 
-
         GameState state = null;
         while (gameOutcome.hasNextRound()) {
             state = gameOutcome.play();

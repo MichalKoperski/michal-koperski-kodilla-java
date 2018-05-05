@@ -14,8 +14,6 @@ public class RPSTestSuite {
 
     @Test
     public void player1Wins() {
-
-
         when(player.makeMove()).thenReturn("2");
         when(computer.makeMove()).thenReturn("1");
 
@@ -26,7 +24,6 @@ public class RPSTestSuite {
 
     @Test
     public  void player2Wins() {
-
         when(player.makeMove()).thenReturn("1");
         when(computer.makeMove()).thenReturn("2");
 
@@ -37,7 +34,6 @@ public class RPSTestSuite {
 
     @Test
     public  void playerEndsGame() {
-
         when(player.makeMove()).thenReturn("x");
         when(computer.makeMove()).thenReturn("2");
 

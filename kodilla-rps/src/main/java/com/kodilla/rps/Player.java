@@ -1,8 +1,6 @@
 package com.kodilla.rps;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Player implements GameInterface {
     private String name;
@@ -17,16 +15,13 @@ public class Player implements GameInterface {
         availableMoves.add("n");
         return availableMoves;
     }
-
     public Player(String name) {
-
         this.name = name;
         prepareAvailableMoves();
     }
 
     @Override
     public String getName() {
-
         return name;
     }
     public String makeMove() {
@@ -34,13 +29,9 @@ public class Player implements GameInterface {
         System.out.println("What is your move?");
         String playerMove = scanner.nextLine();
         while (!(prepareAvailableMoves().contains(playerMove))){
-
             System.out.println("Wrong number. You have to type 1, 2, 3, 4 or 5.");
-
             playerMove = scanner.nextLine();
         }
-
         return playerMove;
-
     }
 }

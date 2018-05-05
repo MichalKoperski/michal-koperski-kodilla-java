@@ -39,11 +39,9 @@ public class GameOutcome {
             gameState.addPointPlayer2();
             System.out.println("Computer wins. Not so bright, are we?");
 
-
         } else if (playerOneBeatsPlayerTwo(p1Move, p2Move)) {
             gameState.addPointPlayer1();
             System.out.println("Well, you managed to beat the machine. You must be a genius of some sort.");
-
 
         } else if (p1Move.equals("n")) {
             gameState.resetGameState();
