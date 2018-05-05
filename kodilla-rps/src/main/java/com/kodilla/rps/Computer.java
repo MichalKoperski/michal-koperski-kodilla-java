@@ -10,7 +10,7 @@ public class Computer implements GameInterface {
     }
     public String makeMove() {
         Random random = new Random();
-        Integer computerMove = random.nextInt(3) + 1;
+        Integer computerMove = random.nextInt(5) + 1;
         return computerMove.toString();
 
     }

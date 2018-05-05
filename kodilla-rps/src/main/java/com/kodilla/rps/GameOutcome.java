@@ -13,12 +13,18 @@ public class GameOutcome {
         gameState = new GameState();
     }
     boolean playerOneBeatsPlayerTwo(String p1Move, String p2Move) {
-        return ((p1Move.equals("2") && p2Move.equals("1")) || (p1Move.equals("3") && p2Move.equals("2")) ||
-                (p1Move.equals("1") && p2Move.equals("3")));
+        return ((p1Move.equals("2") && p2Move.equals("1"))||(p1Move.equals("3") && p2Move.equals("2")) ||
+                (p1Move.equals("1") && p2Move.equals("3"))||(p1Move.equals("5") && p2Move.equals("4"))||
+                (p1Move.equals("1") && p2Move.equals("5"))||(p1Move.equals("4") && p2Move.equals("3"))||
+                (p1Move.equals("3") && p2Move.equals("5"))||(p1Move.equals("5") && p2Move.equals("2"))||
+                (p1Move.equals("2") && p2Move.equals("4"))||(p1Move.equals("4") && p2Move.equals("1")));
     }
     boolean playerTwoBeatsPlayerOne(String p1Move, String p2Move) {
         return ((p1Move.equals("1") && p2Move.equals("2")) || (p1Move.equals("2") && p2Move.equals("3")) ||
-                (p1Move.equals("3") && p2Move.equals("1")));
+                (p1Move.equals("3") && p2Move.equals("1"))||(p1Move.equals("4") && p2Move.equals("5"))||
+                (p1Move.equals("5") && p2Move.equals("1"))||(p1Move.equals("3") && p2Move.equals("4"))||
+                (p1Move.equals("5") && p2Move.equals("3"))||(p1Move.equals("2") && p2Move.equals("5"))||
+                (p1Move.equals("4") && p2Move.equals("2"))||(p1Move.equals("1") && p2Move.equals("4")));
     }
     public GameState play() {
 

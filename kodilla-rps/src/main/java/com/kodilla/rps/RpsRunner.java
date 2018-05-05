@@ -20,6 +20,8 @@ public class RpsRunner {
                 "1 - rock\n" +
                 "2 - paper\n" +
                 "3 - scissors\n" +
+                "4 - spock\n" +
+                "5 - lizard\n" +
                 "x - end game\n" +
                 "n - play again");
 

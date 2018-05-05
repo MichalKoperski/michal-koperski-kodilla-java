@@ -11,6 +11,8 @@ public class Player implements GameInterface {
         availableMoves.add("1");
         availableMoves.add("2");
         availableMoves.add("3");
+        availableMoves.add("4");
+        availableMoves.add("5");
         availableMoves.add("x");
         availableMoves.add("n");
         return availableMoves;
@@ -33,7 +35,7 @@ public class Player implements GameInterface {
         String playerMove = scanner.nextLine();
         while (!(prepareAvailableMoves().contains(playerMove))){
 
-            System.out.println("Wrong number. You have to type 1, 2, or 3.");
+            System.out.println("Wrong number. You have to type 1, 2, 3, 4 or 5.");
 
             playerMove = scanner.nextLine();
         }
