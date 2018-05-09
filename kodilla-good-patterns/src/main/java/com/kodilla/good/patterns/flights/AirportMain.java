@@ -6,7 +6,6 @@ public class AirportMain {
         String choice2 = "Paris";
         int choiceTypeOfSearch = 3;
         FlightSearch search = new FlightSearch();
-
         try {
             if(choiceTypeOfSearch==1) {
                 search.findFlightFrom(choice).stream()

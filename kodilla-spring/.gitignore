@@ -1,11 +1,5 @@
 .gradle
 /build/
-kodilla-testing/out
-kodilla-stream/out
-kodilla-rps/out
-kodilla-exception/out
-kodilla-good-patterns/out
-kodilla-spring-intro/out
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -22,11 +16,12 @@ kodilla-spring-intro/out
 *.iws
 *.iml
 *.ipr
+/out/
 
 ### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
