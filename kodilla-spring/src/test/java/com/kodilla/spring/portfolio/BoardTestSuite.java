@@ -12,10 +12,12 @@ public class BoardTestSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
+        //board.getDoneList().getTasks();
 
+        System.out.println(board.getDoneList());
         //When & Then
         List<String> a = board.getDoneList().getTasks();
-       // a.add("task1");
+        a.add("task1");
 
         a.stream()
                 .forEach(System.out::println);
