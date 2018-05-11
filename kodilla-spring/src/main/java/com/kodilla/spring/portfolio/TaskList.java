@@ -9,7 +9,6 @@ public class TaskList {
     }
 
     public List<String> getTasks() {
-        //tasks = new ArrayList<>();
         return tasks;
     }
 }
