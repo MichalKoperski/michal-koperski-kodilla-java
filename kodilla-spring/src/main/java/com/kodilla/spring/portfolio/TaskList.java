@@ -3,7 +3,7 @@ package com.kodilla.spring.portfolio;
 import java.util.*;
 
 public class TaskList {
-    final List<String> tasks=new ArrayList<>();
+    private List<String> tasks=new ArrayList<>();
 
     public TaskList(final List<String> tasks) {
     }
