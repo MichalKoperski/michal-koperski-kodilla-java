@@ -10,4 +10,3 @@ public class ForumUser {
         return "John Smith";
     }
 }
-
