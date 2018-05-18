@@ -13,10 +13,6 @@ public class LibraryTestSuite {
         Book book2 = new Book("BBB", "John", LocalDate.of(2010,3,3));
         Book book3 = new Book("CCC", "John", LocalDate.of(2001,3,3));
 
-        Book book4 = new Book(book1.getTitle(), book1.getAuthor(), book1.getPublicationDate());
-        Book book5 = new Book(book2.getTitle(), book2.getAuthor(), book2.getPublicationDate());
-        Book book6 = new Book(book3.getTitle(), book3.getAuthor(), book3.getPublicationDate());
-
         Library library = new Library("Book set 1");
         library.getBooks().add(book1);
         library.getBooks().add(book2);
