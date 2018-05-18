@@ -4,11 +4,13 @@ public final class ShoppingTask implements Task {
     final String taskName;
     final String whatToBuy;
     final double quantity;
+    boolean isTaskExecuted;
 
-    public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
+    public ShoppingTask(final String taskName, final String whatToBuy, final double quantity, final boolean isTaskExecuted) {
         this.taskName = taskName;
         this.whatToBuy = whatToBuy;
         this.quantity = quantity;
+        this.isTaskExecuted = isTaskExecuted;
     }
 
     @Override
@@ -25,6 +27,7 @@ public final class ShoppingTask implements Task {
     @Override
     public void executeTask() {
         System.out.println("Shopping task is executed");
+        isTaskExecuted = true;
     }
     @Override
     public boolean isTaskExecuted() {
