@@ -31,6 +31,6 @@ public final class ShoppingTask implements Task {
     }
     @Override
     public boolean isTaskExecuted() {
-        return true;
+        return isTaskExecuted;
     }
 }
