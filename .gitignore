@@ -9,6 +9,7 @@ kodilla-spring-intro/out
 kodilla-patterns/out
 kodilla-jdbc/out
 kodilla-sudoku/out
+kodilla-hibernate/out
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
