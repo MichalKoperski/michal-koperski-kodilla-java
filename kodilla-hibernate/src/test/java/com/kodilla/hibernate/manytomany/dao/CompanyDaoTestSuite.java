@@ -69,6 +69,9 @@ public class CompanyDaoTestSuite {
     @Test
     public void testCompanyNamedQueries() {
         //Given
+        employeeDao.deleteAll();
+        companyDao.deleteAll();
+
         Employee employee1 = new Employee("aaa", "bbb");
 
         Company company1 = new Company("superfirma");

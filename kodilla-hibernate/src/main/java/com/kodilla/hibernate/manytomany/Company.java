@@ -7,9 +7,9 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retrieveExactCompany",
-        query = "SELECT * FROM Company" +
+        query = "SELECT * FROM Company " +
                 "WHERE LEFT (name, 3) = :NAME",
-        resultClass = List.class
+        resultClass = Company.class
 )
 
 @Entity
