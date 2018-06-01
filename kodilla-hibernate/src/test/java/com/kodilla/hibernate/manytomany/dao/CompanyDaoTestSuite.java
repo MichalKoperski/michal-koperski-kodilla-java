@@ -72,6 +72,7 @@ public class CompanyDaoTestSuite {
         Company company1 = new Company("superfirma");
 
         company1.getEmployees().add(employee1);
+        employee1.getCompanies().add(company1);
 
         employeeDao.save(employee1);
         companyDao.save(company1);
