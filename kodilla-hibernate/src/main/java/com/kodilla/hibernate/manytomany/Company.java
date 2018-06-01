@@ -9,7 +9,7 @@ import java.util.List;
         name = "Company.retrieveExactCompany",
         query = "SELECT * FROM Company" +
                 "WHERE LEFT (name, 3) = :NAME",
-        resultClass = Company.class
+        resultClass = List.class
 )
 
 @Entity
