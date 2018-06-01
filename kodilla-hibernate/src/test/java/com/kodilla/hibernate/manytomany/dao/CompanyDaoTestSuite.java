@@ -84,7 +84,7 @@ public class CompanyDaoTestSuite {
 
         //Then
             Assert.assertEquals("bbb", employeeBBB.getLastname());
-            Assert.assertEquals("superfirma", companySuperfirma.getName());
+            Assert.assertEquals("superfirma", companySuperfirma.get(0).getName());
 
     }
 }
