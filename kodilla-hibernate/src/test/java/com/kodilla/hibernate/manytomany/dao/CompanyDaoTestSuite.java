@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
@@ -78,7 +80,7 @@ public class CompanyDaoTestSuite {
 
         //When
         Employee employeeBBB = employeeDao.retrieveExactName("bbb");
-        Company companySuperfirma = companyDao.retrieveExactCompany("sup");
+        List<Company> companySuperfirma = companyDao.retrieveExactCompany("sup");
 
         //Then
             Assert.assertEquals("bbb", employeeBBB.getLastname());
