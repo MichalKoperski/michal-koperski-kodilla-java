@@ -7,8 +7,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retrieveExactCompany",
-        query = "SELECT * FROM Company " +
-                "WHERE LEFT (name, 3) = :NAME",
+        query = "SELECT * FROM Companies WHERE LEFT (company_name, 3) = :NAME",
         resultClass = Company.class
 )
 

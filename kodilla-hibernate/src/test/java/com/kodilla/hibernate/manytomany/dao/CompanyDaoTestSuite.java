@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -58,19 +59,18 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //    companyDao.delete(softwareMachineId);
-        //    companyDao.delete(dataMaestersId);
-        //    companyDao.delete(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
     @Test
+    @Transactional
     public void testCompanyNamedQueries() {
-        //Given
-        employeeDao.deleteAll();
-        companyDao.deleteAll();
+    //Given
 
         Employee employee1 = new Employee("aaa", "bbb");
 
@@ -79,15 +79,15 @@ public class CompanyDaoTestSuite {
         employee1.getCompanies().add(company1);
 
         employeeDao.save(employee1);
-        companyDao.save(company1);
 
-        //When
-        Employee employeeBBB = employeeDao.retrieveExactName("bbb");
+    //When
+        List<Employee> employeeBBB = employeeDao.retrieveExactName("bbb");
         List<Company> companySuperfirma = companyDao.retrieveExactCompany("sup");
 
-        //Then
-            Assert.assertEquals("bbb", employeeBBB.getLastname());
-            Assert.assertEquals("superfirma", companySuperfirma.get(0).getName());
+    //Then
+        Assert.assertEquals("bbb", employeeBBB.get(0).getLastname());
+        Assert.assertEquals("superfirma", companySuperfirma.get(0).getName());
 
     }
+
 }
