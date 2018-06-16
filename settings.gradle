@@ -8,4 +8,5 @@ include 'kodilla-spring-intro'
 include 'kodilla-patterns'
 include 'kodilla-jdbc'
 include 'kodilla-sudoku'
+include 'kodilla-sudoku2'
 

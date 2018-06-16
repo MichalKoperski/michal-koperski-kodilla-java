@@ -1,26 +1,17 @@
 package com.kodilla.sudoku;
 
-import java.util.Scanner;
-
 public class SudokuGame {
+
+    private static SudokuApproval sudokuApproval = new SudokuApproval();
+    private static SudokuRunner sudokuRunner = new SudokuRunner();
+    private static GameResults gameResults = new GameResults();
+    private static NextOrFinish nextOrFinish = new NextOrFinish();
+
     public static void main(String[] args) {
-        SudokuMechanism mech = new SudokuMechanism();
-        int[][] board = mech.getBoard();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Type values separated by spaces, type zero for empty spot");
-        for(int y = 0; y < 9; y++) {
-            System.out.print("Enter values in row "+(y+1)+": ");
-            for(int x = 0; x < 9; x++) {
-                board[x][y] = scanner.nextInt();
-            }
-            scanner.nextLine();
+        boolean gameFinished = false;
+        while(!gameFinished) {
+            gameResults.showSudokuResults(sudokuRunner.run(sudokuApproval.acceptOrReEnter()));
+            gameFinished = nextOrFinish.finishGame();
         }
-        System.out.println();
-        System.out.println("Unsolved sudoku: ");
-        mech.print();
-        mech.resolve(0, 0);
-        System.out.println();
-        System.out.println("Solved sudoku: ");
-        mech.print();
     }
 }
