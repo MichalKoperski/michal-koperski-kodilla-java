@@ -8,8 +8,8 @@ public class HomeworkTest {
     @Test
     public void testUpdate() {
         //Given
-        HomeworksStack student1homework = new Student1Homeworks();
-        HomeworksStack student2homework = new Student2Homeworks();
+        HomeworksStack student1homework = new HomeworksStack("Student 1");
+        HomeworksStack student2homework = new HomeworksStack("Student 2");
         Mentor adam = new Mentor("Adam");
         Mentor iwona = new Mentor("Iwona");
         student1homework.registerObserver(adam);
