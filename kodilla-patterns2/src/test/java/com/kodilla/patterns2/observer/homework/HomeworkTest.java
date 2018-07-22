@@ -12,11 +12,8 @@ public class HomeworkTest {
         HomeworksStack student2homework = new Student2Homeworks();
         Mentor adam = new Mentor("Adam");
         Mentor iwona = new Mentor("Iwona");
-        Mentor ala = new Mentor("Ala");
         student1homework.registerObserver(adam);
         student2homework.registerObserver(iwona);
-        student1homework.registerObserver(ala);
-        student2homework.registerObserver(ala);
         //When
         student1homework.addHomework("Homework 1");
         student1homework.addHomework("Homework 2");
@@ -26,6 +23,5 @@ public class HomeworkTest {
         //Then
         assertEquals(3, adam.getUpdateCount());
         assertEquals(2,iwona.getUpdateCount());
-        assertEquals(5,ala.getUpdateCount());
     }
 }
