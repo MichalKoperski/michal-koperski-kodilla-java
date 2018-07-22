@@ -2,7 +2,6 @@ package com.kodilla.sudoku;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class InputValidator {
 
@@ -57,7 +56,7 @@ public class InputValidator {
         return true;
     }
 
-    public boolean validateDistinctNumbersInABlock(){
+    public boolean validateDistinctNumbersInABlock() {
         List<Integer> block1 = new ArrayList<>();
         List<Integer> block2 = new ArrayList<>();
         List<Integer> block3 = new ArrayList<>();

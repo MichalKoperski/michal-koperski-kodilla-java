@@ -15,4 +15,7 @@ public interface EmployeeDao extends CrudRepository<Employee, Integer> {
     @Query
     List<Employee> retrieveExactName (@Param("LASTNAME") String lastname);
 
+    @Query(nativeQuery = true)
+    List<Employee> retrieveNameWithA (@Param("LASTNAME") String lastname);
+
 }
