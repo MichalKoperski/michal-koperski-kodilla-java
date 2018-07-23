@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-@Service
 @EnableAspectJAutoProxy
+@Service
 public class OrderFacade {
     @Autowired
     private ShopService shopService;
