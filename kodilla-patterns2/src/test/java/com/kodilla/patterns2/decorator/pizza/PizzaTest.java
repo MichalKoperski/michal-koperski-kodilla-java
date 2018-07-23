@@ -13,10 +13,12 @@ public class PizzaTest {
         Pizza thePizza = new BasicPizza();
         thePizza = new PizzaWithExtraCheese(thePizza);
         thePizza = new PizzaWithHam(thePizza);
-
+        OrderProcessor order = new OrderProcessor();
+        order.orderedPizza(thePizza);
         //When
         BigDecimal theCost = thePizza.getCost();
         //Then
+
         assertEquals(new BigDecimal(27), theCost);
     }
     @Test
@@ -25,10 +27,11 @@ public class PizzaTest {
         Pizza thePizza = new BasicPizza();
         thePizza = new PizzaWithExtraCheese(thePizza);
         thePizza = new PizzaWithHam(thePizza);
-
+        OrderProcessor order = new OrderProcessor();
+        order.orderedPizza(thePizza);
         //When
         String description = thePizza.getIngredients();
         //Then
-        assertEquals("Ingredients: tomato sauce, cheese, extra cheese, ham", description);
+        assertEquals("tomato sauce, cheese, extra cheese, ham", description);
     }
 }

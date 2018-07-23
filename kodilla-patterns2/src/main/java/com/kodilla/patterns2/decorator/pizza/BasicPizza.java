@@ -7,6 +7,6 @@ public class BasicPizza implements Pizza {
         return new BigDecimal(15.00);
     }
     public String getIngredients() {
-        return "Ingredients: tomato sauce, cheese";
+        return "tomato sauce, cheese";
     }
 }
