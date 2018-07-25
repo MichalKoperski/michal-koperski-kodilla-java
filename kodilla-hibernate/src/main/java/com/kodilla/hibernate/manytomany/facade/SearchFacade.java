@@ -26,4 +26,14 @@ public class SearchFacade {
     private Company company;
     private Employee employee;
 
+    public Company getCompanyName() {
+        return new Company(company.getName());
+    }
+    public Employee getEmployeeLastname() {
+        return new Employee(employee.getFirstname(), employee.getLastname());
+    }
+
+
+
+
 }

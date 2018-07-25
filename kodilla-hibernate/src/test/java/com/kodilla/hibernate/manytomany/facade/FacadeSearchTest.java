@@ -28,7 +28,7 @@ public class FacadeSearchTest {
     public void testFacadeSearchQueries() {
         //Given
 
-        Employee employee1 = new Employee("ccc", "bbbA");
+        Employee employee1 = new Employee("j","bbbA");
 
         Company company1 = new Company("superfirmA");
 
