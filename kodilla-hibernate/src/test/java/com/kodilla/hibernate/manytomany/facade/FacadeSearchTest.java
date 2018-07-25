@@ -34,8 +34,8 @@ public class FacadeSearchTest {
 
 
         //When
-        List<Employee> employeeBBB = employeeDao.retrieveNameWithA("A");
-        List<Company> companySuperfirma = companyDao.retrieveCompanyWithA("A");
+        List<Employee> employeeBBB = employeeDao.retrieveExactName("A");
+        List<Company> companySuperfirma = companyDao.retrieveExactCompany("A");
 
         //Then
         Assert.assertEquals("bbbA", employeeBBB.get(0).getLastname());
