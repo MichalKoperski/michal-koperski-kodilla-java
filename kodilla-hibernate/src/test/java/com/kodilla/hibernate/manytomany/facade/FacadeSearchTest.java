@@ -2,8 +2,6 @@ package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import com.kodilla.hibernate.manytomany.dao.CompanyDao;
-import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,11 +16,6 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class FacadeSearchTest {
-    @Autowired
-    CompanyDao companyDao;
-
-    @Autowired
-    EmployeeDao employeeDao;
 
     @Autowired
     SearchFacade searchFacade;
