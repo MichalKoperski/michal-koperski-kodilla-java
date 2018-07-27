@@ -23,8 +23,11 @@ public class SearchFacade {
     private EmployeeDao employeeDao;
 
 
-    public List<Company> searchCompaniesWithNameLike(String name) {
-        return companyDao.retrieveExactCompany(name);
+    public List<String> searchCompaniesWithNameLike(String name)  {
+        return companyDao.retrieveExactCompany(name).stream()
+                .map(t-> t.getName())
+                .collect(toList);
+       // return companyDao.retrieveExactCompany(name);
     }
     public List<Employee> searchEmployeesWithLastnameLike(String lastname) {
         return employeeDao.retrieveExactName(lastname);
