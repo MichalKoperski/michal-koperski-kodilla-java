@@ -1,5 +1,7 @@
 package com.kodilla.patterns2.dao.calculator;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -14,5 +16,20 @@ public class Watcher {
     @Before("execution(* com.kodilla.patterns2.aop.calculator.Calculator.factorial(..))")
     public void logEvent() {
         LOGGER.info("Logging the event");
+    }
+
+    @Around("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))")
+    public Object measureTime(final ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        Object result;
+        try {
+            long begin = System.currentTimeMillis();
+            result = proceedingJoinPoint.proceed();
+            long end = System.currentTimeMillis();
+            LOGGER.info("Time consumed: " + (end-begin) + "[ms]");
+        } catch (Throwable throwable) {
+            LOGGER.error(throwable.getMessage());
+            throw throwable;
+        }
+        return result;
     }
 }
