@@ -4,13 +4,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
-@NamedNativeQuery(
-        name = "Company.retrieveExactCompany",
-        query = "SELECT * FROM Companies WHERE LEFT (company_name, 3) = :NAME",
-        resultClass = Company.class
-)
-
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveExactCompany",
+                query = "SELECT * FROM Companies WHERE LEFT (company_name, 3) = :NAME",
+                resultClass = Company.class),
+        @NamedNativeQuery(
+                name = "Company.retrieveExactCompany",
+                query = "SELECT * FROM Companies WHERE company_name LIKE '%A%'",
+                resultClass = Company.class)
+})
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

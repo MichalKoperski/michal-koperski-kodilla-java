@@ -6,14 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.NamedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
-
-@NamedQuery(
-        name = "Employee.retrieveExactName",
-        query = "FROM Employees WHERE lastname LIKE '%A%'"
-)
 
 @Transactional
 @Repository

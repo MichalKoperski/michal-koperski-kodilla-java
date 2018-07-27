@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -23,6 +24,9 @@ public class FacadeSearchTest {
     @Autowired
     EmployeeDao employeeDao;
 
+    @Autowired
+    SearchFacade searchFacade;
+
     @Test
     @Transactional
     public void testFacadeSearchQueries() {
@@ -32,15 +36,15 @@ public class FacadeSearchTest {
 
         Company company1 = new Company("superfirmA");
 
-
         //When
-        List<Employee> employeeBBB = employeeDao.retrieveExactName("A");
-        List<Company> companySuperfirma = companyDao.retrieveExactCompany("A");
+        List<Employee> employeeBBB = new ArrayList<>();
+        try {
+            employeeBBB = searchFacade.searchEmployeesWithLastnameLike("A");
+        } catch (NoEmployeesException e) {}
+        List<String> companySuperfirma = searchFacade.searchCompaniesWithNameLike("A");
 
         //Then
         Assert.assertEquals("bbbA", employeeBBB.get(0).getLastname());
-        Assert.assertEquals("superfirmA", companySuperfirma.get(0).getName());
-
+        Assert.assertEquals("superfirmA", companySuperfirma.get(0));
     }
-
 }
