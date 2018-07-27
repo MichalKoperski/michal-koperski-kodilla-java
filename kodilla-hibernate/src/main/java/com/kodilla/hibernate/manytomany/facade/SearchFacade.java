@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SearchFacade {
@@ -26,10 +27,13 @@ public class SearchFacade {
     public List<String> searchCompaniesWithNameLike(String name)  {
         return companyDao.retrieveExactCompany(name).stream()
                 .map(t-> t.getName())
-                .collect(toList);
-       // return companyDao.retrieveExactCompany(name);
+                .collect(Collectors.toList());
     }
-    public List<Employee> searchEmployeesWithLastnameLike(String lastname) {
+    public List<Employee> searchEmployeesWithLastnameLike(String lastname) throws NoEmployeesException {
+        List<Employee> listOfEmployees = employeeDao.retrieveExactName(lastname);
+        if(listOfEmployees.isEmpty()) {
+            throw new NoEmployeesException();
+        }
         return employeeDao.retrieveExactName(lastname);
     }
 }
