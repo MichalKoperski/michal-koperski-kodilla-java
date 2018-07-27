@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.manytomany.facade;
 
 public class NoEmployeesException extends Exception {
-    super("No employees");
+    public NoEmployeesException() {
+        super("No employees");
+    }
 }
