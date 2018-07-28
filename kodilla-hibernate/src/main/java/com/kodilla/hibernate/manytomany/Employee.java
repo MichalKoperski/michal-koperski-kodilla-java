@@ -9,7 +9,7 @@ import java.util.List;
                 name = "Employee.retrieveExactName",
                 query = "FROM Employees WHERE lastname = :LASTNAME"),
         @NamedQuery(
-                name = "Employee.retrieveExactName",
+                name = "Employee.retrieveNameWithA",
                 query = "FROM Employees WHERE lastname LIKE '%A%'")
 })
 @Entity

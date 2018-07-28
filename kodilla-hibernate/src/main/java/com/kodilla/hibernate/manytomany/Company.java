@@ -10,7 +10,7 @@ import java.util.List;
                 query = "SELECT * FROM Companies WHERE LEFT (company_name, 3) = :NAME",
                 resultClass = Company.class),
         @NamedNativeQuery(
-                name = "Company.retrieveExactCompany",
+                name = "Company.retrieveCompanyWithA",
                 query = "SELECT * FROM Companies WHERE company_name LIKE '%A%'",
                 resultClass = Company.class)
 })
