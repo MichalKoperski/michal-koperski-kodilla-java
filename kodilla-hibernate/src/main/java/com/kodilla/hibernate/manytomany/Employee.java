@@ -7,10 +7,10 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(
                 name = "Employee.retrieveExactName",
-                query = "FROM EMPLOYEES e WHERE e.lastname = :'LASTNAME';"),
+                query = "FROM EMPLOYEES as E WHERE E.lastname = :'LASTNAME';"),
         @NamedQuery(
                 name = "Employee.retrieveNameWithA",
-                query = "FROM Employees e WHERE e.lastname LIKE :'%A%';")
+                query = "FROM EMPLOYEES as E WHERE E.lastname LIKE :'%A%';")
 })
 @Entity
 @Table(name = "EMPLOYEES")
