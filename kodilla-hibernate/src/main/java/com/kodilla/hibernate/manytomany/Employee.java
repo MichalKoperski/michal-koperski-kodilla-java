@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 @NamedQueries({
         @NamedQuery(
-                name = "EmployeeDao.retrieveExactName",
-                query = "FROM EMPLOYEES as E WHERE E.LASTNAME = :LASTNAME"),
+                name = "Employee.retrieveExactName",
+                query = "FROM Employee as E WHERE E.LASTNAME = :LASTNAME"),
         @NamedQuery(
-                name = "EmployeeDao.retrieveNameWithA",
-                query = "FROM EMPLOYEES as E WHERE E.LASTNAME LIKE :%A%")
+                name = "Employee.retrieveNameWithA",
+                query = "FROM Employee as E WHERE E.LASTNAME LIKE :%A%")
 })
 @Entity
 @Table(name = "EMPLOYEES")
