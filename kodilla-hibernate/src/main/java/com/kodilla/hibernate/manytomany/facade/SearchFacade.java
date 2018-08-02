@@ -24,17 +24,17 @@ public class SearchFacade {
     private EmployeeDao employeeDao;
 
 
-    public List<String> searchCompaniesWithNameLike(String name)  {
-        return companyDao.retrieveCompanyWithA(name).stream()
+    public List<String> searchCompaniesWithNameLike(String letter)  {
+        return companyDao.retrieveCompanyWithA(letter).stream()
                 .map(t-> t.getName())
                 .collect(Collectors.toList());
     }
-    public List<Employee> searchEmployeesWithLastnameLike(String lastname) throws NoEmployeesException {
-        List<Employee> listOfEmployees = employeeDao.retrieveNameWithA(lastname);
+    public List<Employee> searchEmployeesWithLastnameLike(String letter) throws NoEmployeesException {
+        List<Employee> listOfEmployees = employeeDao.retrieveNameWithA(letter);
         if(listOfEmployees.isEmpty()) {
             throw new NoEmployeesException();
         }
-        return employeeDao.retrieveExactName(lastname);
+        return employeeDao.retrieveNameWithA(letter);
     }
 }
 
