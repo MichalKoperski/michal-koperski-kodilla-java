@@ -25,12 +25,12 @@ public class SearchFacade {
 
 
     public List<String> searchCompaniesWithNameLike(String name)  {
-        return companyDao.retrieveExactCompany(name).stream()
+        return companyDao.retrieveCompanyWithA(name).stream()
                 .map(t-> t.getName())
                 .collect(Collectors.toList());
     }
     public List<Employee> searchEmployeesWithLastnameLike(String lastname) throws NoEmployeesException {
-        List<Employee> listOfEmployees = employeeDao.retrieveExactName(lastname);
+        List<Employee> listOfEmployees = employeeDao.retrieveNameWithA(lastname);
         if(listOfEmployees.isEmpty()) {
             throw new NoEmployeesException();
         }
