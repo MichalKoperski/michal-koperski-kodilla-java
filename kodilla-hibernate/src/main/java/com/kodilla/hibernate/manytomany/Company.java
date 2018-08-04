@@ -11,7 +11,7 @@ import java.util.List;
                 resultClass = Company.class),
         @NamedNativeQuery(
                 name = "Company.retrieveCompanyWithA",
-                query = "SELECT * FROM Companies WHERE company_name LIKE '%'+:letter+'%'",
+                query = "SELECT * FROM Companies WHERE company_name LIKE concat('%',:letter,'%')",
                 resultClass = Company.class)
 })
 @Entity

@@ -1,6 +1,5 @@
 package com.kodilla.hibernate.manytomany.facade;
 
-import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,13 +22,7 @@ public class FacadeSearchTest {
     @Test
     @Transactional
     public void testFacadeSearchQueries() {
-        //Given
 
-        Employee employee1 = new Employee("j","bbbA");
-
-        Company company1 = new Company("superfirmA");
-
-        //When
         List<Employee> employeeBBB = new ArrayList<>();
         try {
             employeeBBB = searchFacade.searchEmployeesWithLastnameLike("A");
@@ -37,7 +30,7 @@ public class FacadeSearchTest {
         List<String> companySuperfirma = searchFacade.searchCompaniesWithNameLike("A");
 
         //Then
-        Assert.assertEquals("bbbA", employeeBBB.get(0).getLastname());
-        Assert.assertEquals("superfirmA", companySuperfirma.get(0));
+        Assert.assertEquals("Kovalsky", employeeBBB.get(0).getLastname());
+        Assert.assertEquals("Software Machine", companySuperfirma.get(0));
     }
 }
