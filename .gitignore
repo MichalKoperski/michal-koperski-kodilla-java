@@ -1,6 +1,7 @@
 .gradle
 /build/
 kodilla-testing/out
+kodilla-testing2/out
 kodilla-stream/out
 kodilla-rps/out
 kodilla-exception/out
