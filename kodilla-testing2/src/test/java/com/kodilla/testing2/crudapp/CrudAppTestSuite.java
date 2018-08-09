@@ -12,7 +12,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertTrue;
+
 
 public class CrudAppTestSuite {
     private static final String BASE_URL = "https://MichalKoperski.github.io/";
@@ -95,8 +96,8 @@ public class CrudAppTestSuite {
 
         Thread.sleep(2000);
 
-        driverTrello.findElements(By.xpath("//a[@class=\"board-title\"]")).stream()
-                .filter(aHref->aHref.findElements(By.xpath(".//span[@title=\"Kodilla Board\"]")).size() > 0)
+        driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
+                .filter(aHref->aHref.findElements(By.xpath(".//span[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref->aHref.click());
 
         Thread.sleep(2000);
