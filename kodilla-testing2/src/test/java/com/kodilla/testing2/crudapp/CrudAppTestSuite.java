@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertTrue;
+import static junit.framework.TestCase.assertTrue;
 
 public class CrudAppTestSuite {
     private static final String BASE_URL = "https://MichalKoperski.github.io/";
@@ -48,12 +48,20 @@ public class CrudAppTestSuite {
 
         return taskName;
     }
-    private void deleteCrudAppTestTask() throws InterruptedException {
-        final String XPATH_DELETETASK = "/html/body/main/section[2]/div/form[1]/div/fieldset[1]/button[4]";
+    private void deleteCrudAppTestTask(String taskName) throws InterruptedException {
+       driver.navigate().refresh();
 
-        WebElement name = driver.findElement(By.xpath(XPATH_DELETETASK));
-        name.click();
+        while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());
 
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm->
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                                .getText().equals(taskName))
+                .forEach(theForm-> {
+                    WebElement deleteButton = theForm.findElement(By.xpath(".//button[4]"));
+                    deleteButton.click();
+                });
+        Thread.sleep(5000);
     }
     private void sendTestTaskToTrello(String taskName) throws InterruptedException {
         driver.navigate().refresh();
@@ -107,6 +115,6 @@ public class CrudAppTestSuite {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
-        deleteCrudAppTestTask();
+        deleteCrudAppTestTask(taskName);
     }
 }
