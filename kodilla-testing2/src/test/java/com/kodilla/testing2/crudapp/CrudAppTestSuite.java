@@ -96,6 +96,10 @@ public class CrudAppTestSuite {
 
         Thread.sleep(2000);
 
+        driverTrello.findElement(By.xpath("//a[@class=\"tab__tabLink__3C9rw\"]")).click();
+
+        Thread.sleep(5000);
+
         driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
                 .filter(aHref->aHref.findElements(By.xpath(".//span[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref->aHref.click());
