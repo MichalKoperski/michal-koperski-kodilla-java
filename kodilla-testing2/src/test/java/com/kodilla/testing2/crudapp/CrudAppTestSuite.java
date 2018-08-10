@@ -30,6 +30,7 @@ public class CrudAppTestSuite {
     public void cleanUpAfterTest() {
         driver.close();
     }
+
     private String createCrudAppTestTask() throws InterruptedException {
         final String XPATH_TASK_NAME = "//form[contains(@action,\"createTask\")]/fieldset[1]/input";
         final String XPATH_TASK_CONTENT = "//form[contains(@action,\"createTask\")]/fieldset[2]/textarea";
