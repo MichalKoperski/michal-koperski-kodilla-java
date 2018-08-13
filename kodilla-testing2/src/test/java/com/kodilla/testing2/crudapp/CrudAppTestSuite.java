@@ -102,7 +102,7 @@ public class CrudAppTestSuite {
         Thread.sleep(5000);
 
         driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
-                .filter(aHref->aHref.findElements(By.xpath(".//span[@title=\"Kodilla Application\"]")).size() > 0)
+                .filter(aHref->aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref->aHref.click());
 
         Thread.sleep(2000);
